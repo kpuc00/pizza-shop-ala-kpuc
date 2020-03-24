@@ -13,11 +13,13 @@ namespace PizzaShop
     public partial class ChefForm : Form
     {
         CustomerAdmin customer = new CustomerAdmin();
+        OrderAdmin order = new OrderAdmin();
 
         public ChefForm()
         {
             InitializeComponent();
             UpdateCustomersListbox();
+            UpdateOrdersListbox();
         }
 
         private void UpdateCustomersListbox()
@@ -26,6 +28,15 @@ namespace PizzaShop
             foreach (Customer c in customer.GetCustomers())
             {
                 lbxCustomers.Items.Add(c);
+            }
+        }
+
+        private void UpdateOrdersListbox()
+        {
+            lbxOrders.Items.Clear();
+            foreach (Order o in order.GetOrders())
+            {
+                lbxOrders.Items.Add(o);
             }
         }
 

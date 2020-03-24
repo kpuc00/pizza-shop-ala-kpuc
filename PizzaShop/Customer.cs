@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace PizzaShop
 {
+    [Serializable]
     public class Customer
     {
         private static int idSeeder = 0;

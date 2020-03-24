@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace PizzaShop
 {
+    [Serializable]
     public class Order
     {
         private List<Pizza> pizzas = new List<Pizza>();
@@ -85,7 +86,7 @@ namespace PizzaShop
 
         public override string ToString()
         {
-            return $"Order no:{OrderNumber} - Customer ID:{CustomerId} - Date: {Timestamp}";
+            return $"Order no:{OrderNumber} - Customer ID:{CustomerId} - Total: € {TotalPrice} - Date: {Timestamp}";
         }
     }
 }

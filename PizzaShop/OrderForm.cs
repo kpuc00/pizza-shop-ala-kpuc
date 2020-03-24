@@ -19,6 +19,7 @@ namespace PizzaShop
         private int customerId;
         private static double totalPrice;
         private double price;
+        private bool orderSent = false;
 
         CustomerAdmin customer = new CustomerAdmin();
         OrderAdmin order = new OrderAdmin();
@@ -111,6 +112,7 @@ namespace PizzaShop
         {
             amountMargheritta_ValueChanged(sender, e);
             amountMargheritta.Value = 1;
+            amountMargheritta.Enabled = true;
         }
         private void amountMargheritta_ValueChanged(object sender, EventArgs e)
         {
@@ -190,6 +192,7 @@ namespace PizzaShop
         {
             amountQuattroFor_ValueChanged(sender, e);
             amountQuattroFor.Value = 1;
+            amountQuattroFor.Enabled = true;
         }
         private void amountQuattroFor_ValueChanged(object sender, EventArgs e)
         {
@@ -270,6 +273,7 @@ namespace PizzaShop
         {
             amountQuattroSta_ValueChanged(sender, e);
             amountQuattroSta.Value = 1;
+            amountQuattroSta.Enabled = true;
         }
         private void amountQuattroSta_ValueChanged(object sender, EventArgs e)
         {
@@ -349,6 +353,7 @@ namespace PizzaShop
         {
             amountPepperoni_ValueChanged(sender, e);
             amountPepperoni.Value = 1;
+            amountPepperoni.Enabled = true;
         }
         private void amountPepperoni_ValueChanged(object sender, EventArgs e)
         {
@@ -429,6 +434,7 @@ namespace PizzaShop
         {
             amountBBQChicken_ValueChanged(sender, e);
             amountBBQChicken.Value = 1;
+            amountBBQChicken.Enabled = true;
         }
         private void amountBBQChicken_ValueChanged(object sender, EventArgs e)
         {
@@ -626,6 +632,8 @@ namespace PizzaShop
                 if (dialogResult == DialogResult.OK)
                 {
                     o = new Order(customerId, customerName, dateTime, orderedPizzas, totalPrice);
+                    order.AddOrder(o);
+                    orderSent = true;
                     DialogResult dialogResult2 = MessageBox.Show($"Thank you {customerName} for visiting our shop! \n Your order number is {o.GetOrderNumber()}. \n\n Do you want a receipt?", "Order placed", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                     if (dialogResult2 == DialogResult.Yes)
                     {
@@ -644,6 +652,8 @@ namespace PizzaShop
                 if (dialogResult == DialogResult.OK)
                 {
                     o = new Order(customerId, customerName, dateTime, orderedDrinks, totalPrice);
+                    order.AddOrder(o);
+                    orderSent = true;
                     DialogResult dialogResult2 = MessageBox.Show($"Thank you {customerName} for visiting our shop! \n Your order number is {o.GetOrderNumber()}. \n\n Do you want a receipt?", "Order placed", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                     if (dialogResult2 == DialogResult.Yes)
                     {
@@ -663,6 +673,8 @@ namespace PizzaShop
                 if (dialogResult == DialogResult.OK)
                 {
                     o = new Order(customerId, customerName, dateTime, orderedPizzas, orderedDrinks, totalPrice);
+                    order.AddOrder(o);
+                    orderSent = true;
                     DialogResult dialogResult2 = MessageBox.Show($"Thank you {customerName} for visiting our shop! \n Your order number is {o.GetOrderNumber()}. \n\n Do you want a receipt?", "Order placed", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                     if (dialogResult2 == DialogResult.Yes)
                     {
@@ -671,30 +683,58 @@ namespace PizzaShop
                     else
                     {
                         CloseForm();
+
                     }
                 }
             }
+        }
+
+        private void RemoveTemporaryData()
+        {
+            customerName = null;
+            customerId = 0;
+            totalPrice = 0;
+            price = 0;
+            orderedPizzas.Clear();
+            orderedDrinks.Clear();
+            UpdateListbox();
         }
 
         private void ShowReceipt(Order order)
         {
             this.Hide();
             ReceiptForm receipt = new ReceiptForm(order);
+            RemoveTemporaryData();
             receipt.Show();
         }
 
         private void CloseForm()
         {
+            RemoveTemporaryData();
             this.Hide();
+            orderSent = false;
             PizzaShopHome pizzaShopHome = new PizzaShopHome();
             pizzaShopHome.Show();
         }
 
-        private void OrderForm_FormClosed(object sender, FormClosedEventArgs e)
+        private void OrderForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            CloseForm();
+            if (orderSent == false)
+            {
+                DialogResult dialogResult = MessageBox.Show("Are you sure you want to close the window? Your order is not sent!", "Cancel order", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    CloseForm();
+                }
+                else
+                {
+                    e.Cancel = true;
+                }
+            }
+            else
+            {
+                CloseForm();
+            }
         }
-
-
     }
 }

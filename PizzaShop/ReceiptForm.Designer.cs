@@ -38,8 +38,9 @@
             this.btnSaveReceipt.Name = "btnSaveReceipt";
             this.btnSaveReceipt.Size = new System.Drawing.Size(194, 53);
             this.btnSaveReceipt.TabIndex = 1;
-            this.btnSaveReceipt.Text = "Download Receipt";
+            this.btnSaveReceipt.Text = "Save Receipt";
             this.btnSaveReceipt.UseVisualStyleBackColor = true;
+            this.btnSaveReceipt.Click += new System.EventHandler(this.btnSaveReceipt_Click);
             // 
             // tbxReceipt
             // 

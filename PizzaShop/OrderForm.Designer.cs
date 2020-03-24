@@ -31,6 +31,7 @@
             this.lbxDetails = new System.Windows.Forms.ListBox();
             this.tabMenu = new System.Windows.Forms.TabControl();
             this.tabPizzas = new System.Windows.Forms.TabPage();
+            this.label21 = new System.Windows.Forms.Label();
             this.btnAddBBQChicken = new System.Windows.Forms.Button();
             this.btnAddPepperoni = new System.Windows.Forms.Button();
             this.btnAddQuattroSta = new System.Windows.Forms.Button();
@@ -62,6 +63,7 @@
             this.cbMargherittaCrust = new System.Windows.Forms.ComboBox();
             this.amountMargheritta = new System.Windows.Forms.NumericUpDown();
             this.tabDrinks = new System.Windows.Forms.TabPage();
+            this.label22 = new System.Windows.Forms.Label();
             this.btnAddEnergyDrink = new System.Windows.Forms.Button();
             this.btnAddIceTea = new System.Windows.Forms.Button();
             this.btnAddCola = new System.Windows.Forms.Button();
@@ -89,8 +91,6 @@
             this.lblTitle = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.btnOrderNow = new System.Windows.Forms.Button();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
             this.tabMenu.SuspendLayout();
             this.tabPizzas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.amountBBQChicken)).BeginInit();
@@ -169,6 +169,15 @@
             this.tabPizzas.TabIndex = 0;
             this.tabPizzas.Text = "Pizzas";
             this.tabPizzas.UseVisualStyleBackColor = true;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(451, 149);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(35, 20);
+            this.label21.TabIndex = 29;
+            this.label21.Text = "Add";
             // 
             // btnAddBBQChicken
             // 
@@ -327,6 +336,7 @@
             // 
             // amountBBQChicken
             // 
+            this.amountBBQChicken.Enabled = false;
             this.amountBBQChicken.Location = new System.Drawing.Point(315, 315);
             this.amountBBQChicken.Name = "amountBBQChicken";
             this.amountBBQChicken.Size = new System.Drawing.Size(62, 27);
@@ -349,6 +359,7 @@
             // 
             // amountPepperoni
             // 
+            this.amountPepperoni.Enabled = false;
             this.amountPepperoni.Location = new System.Drawing.Point(315, 281);
             this.amountPepperoni.Name = "amountPepperoni";
             this.amountPepperoni.Size = new System.Drawing.Size(62, 27);
@@ -371,6 +382,7 @@
             // 
             // amountQuattroSta
             // 
+            this.amountQuattroSta.Enabled = false;
             this.amountQuattroSta.Location = new System.Drawing.Point(315, 247);
             this.amountQuattroSta.Name = "amountQuattroSta";
             this.amountQuattroSta.Size = new System.Drawing.Size(62, 27);
@@ -393,6 +405,7 @@
             // 
             // amountQuattroFor
             // 
+            this.amountQuattroFor.Enabled = false;
             this.amountQuattroFor.Location = new System.Drawing.Point(315, 213);
             this.amountQuattroFor.Name = "amountQuattroFor";
             this.amountQuattroFor.Size = new System.Drawing.Size(62, 27);
@@ -460,6 +473,7 @@
             // 
             // amountMargheritta
             // 
+            this.amountMargheritta.Enabled = false;
             this.amountMargheritta.Location = new System.Drawing.Point(315, 179);
             this.amountMargheritta.Name = "amountMargheritta";
             this.amountMargheritta.Size = new System.Drawing.Size(62, 27);
@@ -501,6 +515,15 @@
             this.tabDrinks.TabIndex = 1;
             this.tabDrinks.Text = "Drinks";
             this.tabDrinks.UseVisualStyleBackColor = true;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(451, 150);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(35, 20);
+            this.label22.TabIndex = 55;
+            this.label22.Text = "Add";
             // 
             // btnAddEnergyDrink
             // 
@@ -753,24 +776,6 @@
             this.btnOrderNow.UseVisualStyleBackColor = true;
             this.btnOrderNow.Click += new System.EventHandler(this.btnOrderNow_Click);
             // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(451, 149);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(35, 20);
-            this.label21.TabIndex = 29;
-            this.label21.Text = "Add";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(451, 150);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(35, 20);
-            this.label22.TabIndex = 55;
-            this.label22.Text = "Add";
-            // 
             // OrderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -788,7 +793,7 @@
             this.Name = "OrderForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Order";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.OrderForm_FormClosed);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.OrderForm_FormClosing);
             this.tabMenu.ResumeLayout(false);
             this.tabPizzas.ResumeLayout(false);
             this.tabPizzas.PerformLayout();
