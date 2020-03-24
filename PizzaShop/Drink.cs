@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace PizzaShop
 {
+    [Serializable]
     public class Drink
     {
         public string DrinkName { get; private set; }

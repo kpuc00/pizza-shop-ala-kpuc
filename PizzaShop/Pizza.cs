@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace PizzaShop
 {
+    [Serializable]
     public class Pizza
     {
         private static double basePrice = 5.99;

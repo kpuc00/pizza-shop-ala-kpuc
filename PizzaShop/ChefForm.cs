@@ -24,6 +24,7 @@ namespace PizzaShop
 
         private void UpdateCustomersListbox()
         {
+            customer.LoadCustomersFromFile();
             lbxCustomers.Items.Clear();
             foreach (Customer c in customer.GetCustomers())
             {
@@ -33,6 +34,7 @@ namespace PizzaShop
 
         private void UpdateOrdersListbox()
         {
+            order.LoadOrdersFromFile();
             lbxOrders.Items.Clear();
             foreach (Order o in order.GetOrders())
             {
@@ -42,6 +44,8 @@ namespace PizzaShop
 
         private void ChefForm_FormClosed(object sender, FormClosedEventArgs e)
         {
+            customer.SaveCustomersToFile();
+            order.SaveOrdersToFile();
             this.Hide();
             PizzaShopHome pizzaShopHome = new PizzaShopHome();
             pizzaShopHome.Show();

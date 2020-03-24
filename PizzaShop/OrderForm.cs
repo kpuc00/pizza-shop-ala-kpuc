@@ -710,6 +710,8 @@ namespace PizzaShop
 
         private void CloseForm()
         {
+            customer.SaveCustomersToFile();
+            order.SaveOrdersToFile();
             RemoveTemporaryData();
             this.Hide();
             orderSent = false;
