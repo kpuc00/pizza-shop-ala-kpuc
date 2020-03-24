@@ -28,46 +28,51 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lbxReceipt = new System.Windows.Forms.ListBox();
             this.btnSaveReceipt = new System.Windows.Forms.Button();
+            this.tbxReceipt = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
-            // 
-            // lbxReceipt
-            // 
-            this.lbxReceipt.FormattingEnabled = true;
-            this.lbxReceipt.ItemHeight = 16;
-            this.lbxReceipt.Location = new System.Drawing.Point(12, 12);
-            this.lbxReceipt.Name = "lbxReceipt";
-            this.lbxReceipt.Size = new System.Drawing.Size(370, 436);
-            this.lbxReceipt.TabIndex = 0;
             // 
             // btnSaveReceipt
             // 
-            this.btnSaveReceipt.Location = new System.Drawing.Point(98, 454);
+            this.btnSaveReceipt.Location = new System.Drawing.Point(136, 454);
             this.btnSaveReceipt.Name = "btnSaveReceipt";
             this.btnSaveReceipt.Size = new System.Drawing.Size(194, 53);
             this.btnSaveReceipt.TabIndex = 1;
             this.btnSaveReceipt.Text = "Download Receipt";
             this.btnSaveReceipt.UseVisualStyleBackColor = true;
             // 
+            // tbxReceipt
+            // 
+            this.tbxReceipt.BackColor = System.Drawing.Color.White;
+            this.tbxReceipt.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tbxReceipt.Location = new System.Drawing.Point(12, 12);
+            this.tbxReceipt.Multiline = true;
+            this.tbxReceipt.Name = "tbxReceipt";
+            this.tbxReceipt.ReadOnly = true;
+            this.tbxReceipt.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.tbxReceipt.Size = new System.Drawing.Size(443, 424);
+            this.tbxReceipt.TabIndex = 2;
+            // 
             // ReceiptForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(394, 519);
+            this.ClientSize = new System.Drawing.Size(467, 519);
+            this.Controls.Add(this.tbxReceipt);
             this.Controls.Add(this.btnSaveReceipt);
-            this.Controls.Add(this.lbxReceipt);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "ReceiptForm";
-            this.Text = "ReceiptForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Receipt";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ReceiptForm_FormClosed);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.ListBox lbxReceipt;
         private System.Windows.Forms.Button btnSaveReceipt;
+        private System.Windows.Forms.TextBox tbxReceipt;
     }
 }

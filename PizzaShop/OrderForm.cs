@@ -625,15 +625,15 @@ namespace PizzaShop
                 DialogResult dialogResult = MessageBox.Show($"Order details: \n\n {pizzasDetails} \n Total: € {totalPrice} \n\n Do you want to continue?", "Order Details", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                 if (dialogResult == DialogResult.OK)
                 {
-                    o = new Order(customerId, dateTime, orderedPizzas, totalPrice);
+                    o = new Order(customerId, customerName, dateTime, orderedPizzas, totalPrice);
                     DialogResult dialogResult2 = MessageBox.Show($"Thank you {customerName} for visiting our shop! \n Your order number is {o.GetOrderNumber()}. \n\n Do you want a receipt?", "Order placed", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-                    if (dialogResult2==DialogResult.Yes)
+                    if (dialogResult2 == DialogResult.Yes)
                     {
-                        //receipt
+                        ShowReceipt(o);
                     }
                     else
                     {
-                        //close
+                        CloseForm();
                     }
                 }
             }
@@ -643,15 +643,15 @@ namespace PizzaShop
                 DialogResult dialogResult = MessageBox.Show($"Order details: \n\n {drinksDetails} \n Total: € {totalPrice} \n\n Do you want to continue?", "Order Details", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                 if (dialogResult == DialogResult.OK)
                 {
-                    o = new Order(customerId, dateTime, orderedPizzas, totalPrice);
+                    o = new Order(customerId, customerName, dateTime, orderedDrinks, totalPrice);
                     DialogResult dialogResult2 = MessageBox.Show($"Thank you {customerName} for visiting our shop! \n Your order number is {o.GetOrderNumber()}. \n\n Do you want a receipt?", "Order placed", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                     if (dialogResult2 == DialogResult.Yes)
                     {
-                        //receipt
+                        ShowReceipt(o);
                     }
                     else
                     {
-                        //close
+                        CloseForm();
                     }
                 }
             }
@@ -662,25 +662,37 @@ namespace PizzaShop
                 DialogResult dialogResult = MessageBox.Show($"Order details: \n\n {pizzasDetails} \n {drinksDetails} \n Total: € {totalPrice} \n\n Do you want to continue?", "Order Details", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                 if (dialogResult == DialogResult.OK)
                 {
-                    o = new Order(customerId, dateTime, orderedPizzas, totalPrice);
+                    o = new Order(customerId, customerName, dateTime, orderedPizzas, orderedDrinks, totalPrice);
                     DialogResult dialogResult2 = MessageBox.Show($"Thank you {customerName} for visiting our shop! \n Your order number is {o.GetOrderNumber()}. \n\n Do you want a receipt?", "Order placed", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                     if (dialogResult2 == DialogResult.Yes)
                     {
-                        //receipt
+                        ShowReceipt(o);
                     }
                     else
                     {
-                        //close
+                        CloseForm();
                     }
                 }
             }
         }
 
-        private void OrderForm_FormClosed(object sender, FormClosedEventArgs e)
+        private void ShowReceipt(Order order)
+        {
+            this.Hide();
+            ReceiptForm receipt = new ReceiptForm(order);
+            receipt.Show();
+        }
+
+        private void CloseForm()
         {
             this.Hide();
             PizzaShopHome pizzaShopHome = new PizzaShopHome();
             pizzaShopHome.Show();
+        }
+
+        private void OrderForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            CloseForm();
         }
 
 
