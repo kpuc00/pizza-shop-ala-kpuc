@@ -90,7 +90,7 @@
             this.label20 = new System.Windows.Forms.Label();
             this.amountFlatWater = new System.Windows.Forms.NumericUpDown();
             this.lblTitle = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
+            this.lblCartCounter = new System.Windows.Forms.Label();
             this.btnOrderNow = new System.Windows.Forms.Button();
             this.btnClearCart = new System.Windows.Forms.Button();
             this.tabMenu.SuspendLayout();
@@ -234,10 +234,10 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Stylo", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label10.Location = new System.Drawing.Point(66, 49);
+            this.label10.Font = new System.Drawing.Font("Comic Sans MS", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label10.Location = new System.Drawing.Point(109, 49);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(324, 62);
+            this.label10.Size = new System.Drawing.Size(282, 67);
             this.label10.TabIndex = 24;
             this.label10.Text = "Pizza menu";
             // 
@@ -580,10 +580,10 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Stylo", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label11.Location = new System.Drawing.Point(55, 50);
+            this.label11.Font = new System.Drawing.Font("Comic Sans MS", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label11.Location = new System.Drawing.Point(94, 50);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(343, 62);
+            this.label11.Size = new System.Drawing.Size(309, 67);
             this.label11.TabIndex = 49;
             this.label11.Text = "Drinks menu";
             // 
@@ -748,24 +748,25 @@
             // 
             this.lblTitle.BackColor = System.Drawing.Color.White;
             this.lblTitle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lblTitle.Font = new System.Drawing.Font("Stylo", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblTitle.Font = new System.Drawing.Font("Comic Sans MS", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblTitle.ForeColor = System.Drawing.Color.Black;
-            this.lblTitle.Location = new System.Drawing.Point(12, 21);
+            this.lblTitle.Location = new System.Drawing.Point(12, 14);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(1153, 49);
+            this.lblTitle.Size = new System.Drawing.Size(1153, 64);
             this.lblTitle.TabIndex = 2;
             this.lblTitle.Text = "Hello {customer}, let\'s get started...";
+            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label14
+            // lblCartCounter
             // 
-            this.label14.AutoSize = true;
-            this.label14.BackColor = System.Drawing.Color.White;
-            this.label14.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label14.Location = new System.Drawing.Point(683, 94);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(50, 26);
-            this.label14.TabIndex = 3;
-            this.label14.Text = "Cart";
+            this.lblCartCounter.AutoSize = true;
+            this.lblCartCounter.BackColor = System.Drawing.Color.White;
+            this.lblCartCounter.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblCartCounter.Location = new System.Drawing.Point(683, 94);
+            this.lblCartCounter.Name = "lblCartCounter";
+            this.lblCartCounter.Size = new System.Drawing.Size(101, 26);
+            this.lblCartCounter.TabIndex = 3;
+            this.lblCartCounter.Text = "Cart: 0/30";
             // 
             // btnOrderNow
             // 
@@ -799,7 +800,7 @@
             this.Controls.Add(this.btnClearCart);
             this.Controls.Add(this.lbxDetails);
             this.Controls.Add(this.btnOrderNow);
-            this.Controls.Add(this.label14);
+            this.Controls.Add(this.lblCartCounter);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.tabMenu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -880,7 +881,7 @@
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.NumericUpDown amountFlatWater;
         private System.Windows.Forms.Label lblTitle;
-        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label lblCartCounter;
         private System.Windows.Forms.Button btnOrderNow;
         private System.Windows.Forms.Button btnAddBBQChicken;
         private System.Windows.Forms.Button btnAddPepperoni;

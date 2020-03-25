@@ -28,6 +28,10 @@ namespace PizzaShop
             {
                 MessageBox.Show("Please fill the required blanks.", "User data", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
+            else if (tbxName.Text.Length > 40)
+            {
+                MessageBox.Show("The name must be less than 40 characters.", "User data", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
             else if (tbxPhone.Text.Length < 10 || tbxPhone.Text.Length > 15)
             {
                 MessageBox.Show("Invalid phone number. Phone must have at least 10 digits and no more than 15 digits.", "User data", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);

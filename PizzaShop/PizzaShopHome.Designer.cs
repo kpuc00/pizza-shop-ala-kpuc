@@ -40,10 +40,10 @@
             // 
             this.lblTitle.AutoSize = true;
             this.lblTitle.BackColor = System.Drawing.Color.Transparent;
-            this.lblTitle.Font = new System.Drawing.Font("Stylo", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblTitle.Location = new System.Drawing.Point(37, 52);
+            this.lblTitle.Font = new System.Drawing.Font("Comic Sans MS", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblTitle.Location = new System.Drawing.Point(128, 50);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(861, 82);
+            this.lblTitle.Size = new System.Drawing.Size(716, 84);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "Welcome to Pizza Shop";
             // 
@@ -51,10 +51,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Stylo", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(664, 134);
+            this.label1.Font = new System.Drawing.Font("Comic Sans MS", 19.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(677, 134);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(230, 50);
+            this.label1.Size = new System.Drawing.Size(171, 48);
             this.label1.TabIndex = 1;
             this.label1.Text = "a la Kpuc";
             // 

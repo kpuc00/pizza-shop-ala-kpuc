@@ -118,6 +118,7 @@ namespace PizzaShop
             if (dialogResult==DialogResult.Yes)
             {
                 Order.ShopRevenue = 0;
+                order.Orders.Clear();
                 order.SaveOrdersToFile();
                 UpdateOrdersListbox();
             }

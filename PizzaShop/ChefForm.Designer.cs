@@ -144,7 +144,7 @@
             // btnResetRevenue
             // 
             this.btnResetRevenue.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnResetRevenue.Location = new System.Drawing.Point(62, 186);
+            this.btnResetRevenue.Location = new System.Drawing.Point(66, 186);
             this.btnResetRevenue.Name = "btnResetRevenue";
             this.btnResetRevenue.Size = new System.Drawing.Size(135, 35);
             this.btnResetRevenue.TabIndex = 6;
@@ -201,7 +201,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(82, 14);
+            this.label2.Location = new System.Drawing.Point(88, 14);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(96, 26);
             this.label2.TabIndex = 1;
@@ -241,6 +241,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
             this.Name = "ChefForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ChefForm";

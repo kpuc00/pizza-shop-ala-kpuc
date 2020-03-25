@@ -11,7 +11,7 @@ using System.Windows.Forms;
 namespace PizzaShop
 {
     public partial class OrderForm : Form
-    {        
+    {
         private static List<object> cart = new List<object>();
 
         private string customerName;
@@ -46,6 +46,7 @@ namespace PizzaShop
 
         private void UpdateCartListBox()
         {
+            lblCartCounter.Text = $"Cart: {cart.Count().ToString()}/30";
             lbxDetails.Items.Clear();
             if (cart.Count() == 0)
             {
@@ -62,7 +63,13 @@ namespace PizzaShop
                 lbxDetails.Items.Add("");
                 lbxDetails.Items.Add($"Total: € {totalPrice}");
             }
-
+        }
+        private void CheckCartLimit()
+        {
+            if (cart.Count() >= 30)
+            {
+                MessageBox.Show("You have reached the cart max limit of products!", "Cart", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         //--------------------------------------------------------------------
@@ -70,13 +77,14 @@ namespace PizzaShop
         //--------------------------------------------------------------------
         private void btnAddMargheritta_Click(object sender, EventArgs e)
         {
+            CheckCartLimit();
             pizzaType = new PizzaType();
             int amount = Convert.ToInt32(amountMargheritta.Value);
             Pizza pizzaPrice = new Pizza();
             double basePrice = pizzaPrice.GetBasePrice();
             double addPrice = 0;
 
-            if (amount > 0)
+            if (amount > 0 && cart.Count() < 30)
             {
                 switch (cbMargherittaCrust.Text)
                 {
@@ -109,7 +117,7 @@ namespace PizzaShop
                         break;
                 }
             }
-            else
+            else if (amount <= 0)
             {
                 MessageBox.Show("Please select amount of pizza!");
             }
@@ -150,13 +158,14 @@ namespace PizzaShop
         //--------------------------------------------------------------------
         private void btnAddQuattroFor_Click(object sender, EventArgs e)
         {
+            CheckCartLimit();
             pizzaType = new PizzaType();
             int amount = Convert.ToInt32(amountQuattroFor.Value);
             Pizza pizzaPrice = new Pizza();
             double basePrice = pizzaPrice.GetBasePrice();
             double addPrice = 2.00;
 
-            if (amount > 0)
+            if (amount > 0 && cart.Count() < 30)
             {
                 switch (cbQuattroForCrust.Text)
                 {
@@ -189,7 +198,7 @@ namespace PizzaShop
                         break;
                 }
             }
-            else
+            else if(amount <= 0)
             {
                 MessageBox.Show("Please select amount of pizza!");
             }
@@ -230,6 +239,7 @@ namespace PizzaShop
         //--------------------------------------------------------------------
         private void btnAddQuattroSta_Click(object sender, EventArgs e)
         {
+            CheckCartLimit();
             //Pizza quattroSta;
             pizzaType = new PizzaType();
             int amount = Convert.ToInt32(amountQuattroSta.Value);
@@ -237,7 +247,7 @@ namespace PizzaShop
             double basePrice = pizzaPrice.GetBasePrice();
             double addPrice = 1.50;
 
-            if (amount > 0)
+            if (amount > 0 && cart.Count() < 30)
             {
                 switch (cbQuattroStaCrust.Text)
                 {
@@ -270,7 +280,7 @@ namespace PizzaShop
                         break;
                 }
             }
-            else
+            else if (amount <= 0)
             {
                 MessageBox.Show("Please select amount of pizza!");
             }
@@ -311,13 +321,14 @@ namespace PizzaShop
         //--------------------------------------------------------------------
         private void btnAddPepperoni_Click(object sender, EventArgs e)
         {
+            CheckCartLimit();
             pizzaType = new PizzaType();
             int amount = Convert.ToInt32(amountPepperoni.Value);
             Pizza pizzaPrice = new Pizza();
             double basePrice = pizzaPrice.GetBasePrice();
             double addPrice = 1.00;
 
-            if (amount > 0)
+            if (amount > 0 && cart.Count() < 30)
             {
                 switch (cbPepperoniCrust.Text)
                 {
@@ -350,7 +361,7 @@ namespace PizzaShop
                         break;
                 }
             }
-            else
+            else if (amount <= 0)
             {
                 MessageBox.Show("Please select amount of pizza!");
             }
@@ -391,14 +402,14 @@ namespace PizzaShop
         //--------------------------------------------------------------------
         private void btnAddBBQChicken_Click(object sender, EventArgs e)
         {
-            //Pizza bbqChicken;
+            CheckCartLimit();
             pizzaType = new PizzaType();
             int amount = Convert.ToInt32(amountBBQChicken.Value);
             Pizza pizzaPrice = new Pizza();
             double basePrice = pizzaPrice.GetBasePrice();
             double addPrice = 1.00;
 
-            if (amount > 0)
+            if (amount > 0 && cart.Count() < 30)
             {
                 switch (cbBBQChickenCrust.Text)
                 {
@@ -431,7 +442,7 @@ namespace PizzaShop
                         break;
                 }
             }
-            else
+            else if (amount <= 0)
             {
                 MessageBox.Show("Please select amount of pizza!");
             }
@@ -474,16 +485,17 @@ namespace PizzaShop
         //--------------------------------------------------------------------
         private void btnAddFlatWater_Click(object sender, EventArgs e)
         {
+            CheckCartLimit();
             int amount = Convert.ToInt32(amountFlatWater.Value);
             price = 2.50 * amount;
             totalPrice += price;
-            if (amount > 0)
+            if (amount > 0 && cart.Count() < 30)
             {
                 drink = new Drink("Flat water", amount, price);
                 cart.Add(drink);
                 UpdateCartListBox();
             }
-            else
+            else if (amount <= 0)
             {
                 MessageBox.Show("Please select amount of drink!");
             }
@@ -497,24 +509,21 @@ namespace PizzaShop
             {
                 priceFlatWater.Text = "€ " + price;
             }
-            else
-            {
-                MessageBox.Show("Please select amount of drink!");
-            }
         }
         //--------------------------------------------------------------------
         private void btnAddSparklingWater_Click(object sender, EventArgs e)
         {
+            CheckCartLimit();
             int amount = Convert.ToInt32(amountSparklingWater.Value);
             price = 2.50 * amount;
             totalPrice += price;
-            if (amount > 0)
+            if (amount > 0 && cart.Count() < 30)
             {
                 drink = new Drink("Sparkling water", amount, price);
                 cart.Add(drink);
                 UpdateCartListBox();
             }
-            else
+            else if (amount <= 0)
             {
                 MessageBox.Show("Please select amount of drink!");
             }
@@ -527,24 +536,21 @@ namespace PizzaShop
             {
                 priceSparklingWater.Text = "€ " + price;
             }
-            else
-            {
-                MessageBox.Show("Please select amount of drink!");
-            }
         }
         //--------------------------------------------------------------------
         private void btnAddCola_Click(object sender, EventArgs e)
         {
+            CheckCartLimit();
             int amount = Convert.ToInt32(amountCola.Value);
             price = 2.75 * amount;
             totalPrice += price;
-            if (amount > 0)
+            if (amount > 0 && cart.Count() < 30)
             {
                 drink = new Drink("Cola", amount, price);
                 cart.Add(drink);
                 UpdateCartListBox();
             }
-            else
+            else if (amount <= 0)
             {
                 MessageBox.Show("Please select amount of drink!");
             }
@@ -557,24 +563,21 @@ namespace PizzaShop
             {
                 priceCola.Text = "€ " + price;
             }
-            else
-            {
-                MessageBox.Show("Please select amount of drink!");
-            }
         }
         //--------------------------------------------------------------------
         private void btnAddIceTea_Click(object sender, EventArgs e)
         {
+            CheckCartLimit();
             int amount = Convert.ToInt32(amountIceTea.Value);
             price = 2.75 * amount;
             totalPrice += price;
-            if (amount > 0)
+            if (amount > 0 && cart.Count() < 30)
             {
                 drink = new Drink("Ice tea", amount, price);
                 cart.Add(drink);
                 UpdateCartListBox();
             }
-            else
+            else if (amount <= 0)
             {
                 MessageBox.Show("Please select amount of drink!");
             }
@@ -587,24 +590,21 @@ namespace PizzaShop
             {
                 priceIceTea.Text = "€ " + price;
             }
-            else
-            {
-                MessageBox.Show("Please select amount of drink!");
-            }
         }
         //--------------------------------------------------------------------
         private void btnAddEnergyDrink_Click(object sender, EventArgs e)
         {
+            CheckCartLimit();
             int amount = Convert.ToInt32(amountEnergyDrink.Value);
             price = 3.75 * amount;
             totalPrice += price;
-            if (amount > 0)
+            if (amount > 0 && cart.Count() < 30)
             {
                 drink = new Drink("Energy drink", amount, price);
                 cart.Add(drink);
                 UpdateCartListBox();
             }
-            else
+            else if (amount <= 0)
             {
                 MessageBox.Show("Please select amount of drink!");
             }
@@ -616,10 +616,6 @@ namespace PizzaShop
             if (amount > 0)
             {
                 priceEnergyDrink.Text = "€ " + price;
-            }
-            else
-            {
-                MessageBox.Show("Please select amount of drink!");
             }
         }
         //--------------------------------------------------------------------
@@ -651,7 +647,7 @@ namespace PizzaShop
                         CloseForm();
                     }
                 }
-            }            
+            }
         }
 
         private void btnClearCart_Click(object sender, EventArgs e)
@@ -714,6 +710,6 @@ namespace PizzaShop
                 CloseForm();
             }
         }
-                
+
     }
 }
