@@ -58,9 +58,31 @@ namespace PizzaShop
                     fs.Close();
                 }
             }
+
+
+            string fileNameRevenue = "RevenueBAK";
+            FileStream fs2 = null;
+            BinaryFormatter bf2 = null;
+            try
+            {
+                fs2 = new FileStream(fileNameRevenue, FileMode.Open, FileAccess.Read);
+                bf2 = new BinaryFormatter();
+                Order.ShopRevenue = (double)bf.Deserialize(fs);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                if (fs != null)
+                {
+                    fs.Close();
+                }
+            }
         }
         public void SaveOrdersToFile()
-        {
+        {            
             FileStream fs = null;
             BinaryFormatter bf = null;
             OrderAdmin order = new OrderAdmin();
@@ -74,13 +96,33 @@ namespace PizzaShop
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
-                //MessageBox.Show(ex.Message);
             }
             finally
             {
                 if (fs != null)
                 {
                     fs.Close();
+                }
+            }
+
+            FileStream fs2 = null;
+            BinaryFormatter bf2 = null;
+            string fileNameRevenue = "RevenueBAK";
+            try
+            {
+                fs2 = new FileStream(fileNameRevenue, FileMode.OpenOrCreate, FileAccess.Write);
+                bf2 = new BinaryFormatter();
+                bf2.Serialize(fs2, Order.ShopRevenue);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                if (fs2 != null)
+                {
+                    fs2.Close();
                 }
             }
         }

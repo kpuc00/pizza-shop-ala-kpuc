@@ -30,11 +30,11 @@ namespace PizzaShop
         DateTime dateTime;
 
 
-        public OrderForm(Customer customer)
+        public OrderForm(Customer givenCustomer)
         {
             InitializeComponent();
-            customerName = customer.GetName();
-            customerId = customer.GetId();
+            customerName = givenCustomer.GetName();
+            customerId = givenCustomer.GetId();
             lblTitle.Text = $"Hello {customerName}, let's get started...";
             cbMargherittaCrust.DropDownStyle = ComboBoxStyle.DropDownList;
             cbQuattroForCrust.DropDownStyle = ComboBoxStyle.DropDownList;

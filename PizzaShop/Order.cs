@@ -8,10 +8,35 @@ namespace PizzaShop
 {
     [Serializable]
     public class Order
+
     {
         private List<Pizza> pizzas = new List<Pizza>();
         private List<Drink> drinks = new List<Drink>();
         private static int idSeeder = 100;
+        private static double shopRevenue;
+        private double totalPrice;
+        public static double ShopRevenue
+        {
+            get
+            {
+                return shopRevenue;
+            }
+            set
+            {
+                shopRevenue = value;
+            }
+        }
+        public static int IdSeeder
+        {
+            get
+            {
+                return idSeeder;
+            }
+            set
+            {
+                idSeeder = value;
+            }
+        }
 
         public string OrderNumber { get; private set; }
         public int CustomerId { get; private set; }
@@ -39,7 +64,18 @@ namespace PizzaShop
                 drinks = value;
             }
         }
-        public double TotalPrice { get; private set; }
+        public double TotalPrice
+        {
+            get
+            {
+                return totalPrice;
+            }
+            set
+            {
+                totalPrice = value;
+                shopRevenue += value;
+            }
+        }
 
         public Order(int givenCustomerId, string givenCustomerName, DateTime givenTimestamp, List<Pizza> givenPizzas, List<Drink> givenDrinks, double givenPrice)
         {
@@ -86,7 +122,7 @@ namespace PizzaShop
 
         public override string ToString()
         {
-            return $"Order no:{OrderNumber} - Customer ID:{CustomerId} - Total: € {TotalPrice} - Date: {Timestamp}";
+            return $"Order: {OrderNumber} - Customer: {CustomerName} - Total: € {TotalPrice} - Date: {Timestamp}";
         }
     }
 }

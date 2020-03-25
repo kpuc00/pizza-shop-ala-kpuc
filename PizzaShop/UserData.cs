@@ -19,6 +19,7 @@ namespace PizzaShop
         public UserData()
         {
             InitializeComponent();
+            customer.LoadCustomersFromFile();
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)

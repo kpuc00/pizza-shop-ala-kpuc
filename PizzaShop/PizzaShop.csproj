@@ -55,6 +55,12 @@
     <Compile Include="Customer.cs" />
     <Compile Include="CustomerAdmin.cs" />
     <Compile Include="Drink.cs" />
+    <Compile Include="EditCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditCustomer.Designer.cs">
+      <DependentUpon>EditCustomer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Order.cs" />
     <Compile Include="OrderAdmin.cs" />
     <Compile Include="Pizza.cs" />
@@ -99,6 +105,9 @@
     </Compile>
     <EmbeddedResource Include="ChefForm.resx">
       <DependentUpon>ChefForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditCustomer.resx">
+      <DependentUpon>EditCustomer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PizzaShopHome.resx">
       <DependentUpon>PizzaShopHome.cs</DependentUpon>

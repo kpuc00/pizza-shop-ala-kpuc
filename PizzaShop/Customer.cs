@@ -9,8 +9,30 @@ namespace PizzaShop
     [Serializable]
     public class Customer
     {
-        private static int idSeeder = 0;
+        private static int idSeeder = 100;
+        public static int IdSeeder
+        {
+            get
+            {
+                return idSeeder;
+            }
+            set
+            {
+                idSeeder = value;
+            }
+        }
         private int id;
+        public int Id
+        {
+            get
+            {
+                return id;
+            }
+            set
+            {
+                id = value;
+            }
+        }
         public string Name { get; private set; }
         public string Phone { get; private set; }
         public string Email { get; private set; }
@@ -30,6 +52,13 @@ namespace PizzaShop
             Phone = givenPhone;
             Email = givenEmail;
         }
+        public Customer(int givenId, string givenName, string givenPhone, string givenEmail)
+        {
+            id = givenId;
+            Name = givenName;
+            Phone = givenPhone;
+            Email = givenEmail;
+        }
         public int GetId()
         {
             return id;
@@ -40,7 +69,7 @@ namespace PizzaShop
         }
         public override string ToString()
         {
-            return $"{id} Name: {Name}, Contact: {Phone} {Email}";
+            return $"{id} Name: {Name}, Contact: {Phone}; {Email}";
         }
     }
 }
