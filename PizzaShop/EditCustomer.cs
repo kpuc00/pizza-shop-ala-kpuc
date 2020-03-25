@@ -29,7 +29,11 @@ namespace PizzaShop
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(tbxEmail.Text))
+            if (tbxPhone.Text.Length < 10 || tbxPhone.Text.Length > 15)
+            {
+                MessageBox.Show("Invalid phone number. Phone must have at least 10 digits and no more than 15 digits.");
+            }
+            else if (string.IsNullOrWhiteSpace(tbxEmail.Text))
             {
                 EditCustomerData();
             }
@@ -80,5 +84,12 @@ namespace PizzaShop
             chefForm.Show();
         }
 
+        private void tbxPhone_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

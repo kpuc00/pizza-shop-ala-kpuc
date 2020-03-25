@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OrderForm));
             this.lbxDetails = new System.Windows.Forms.ListBox();
             this.tabMenu = new System.Windows.Forms.TabControl();
             this.tabPizzas = new System.Windows.Forms.TabPage();
@@ -789,6 +790,7 @@
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.tabMenu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "OrderForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

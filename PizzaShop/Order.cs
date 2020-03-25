@@ -12,9 +12,11 @@ namespace PizzaShop
     {
         private List<Pizza> pizzas = new List<Pizza>();
         private List<Drink> drinks = new List<Drink>();
+
         private static int idSeeder = 100;
         private static double shopRevenue;
         private double totalPrice;
+
         public static double ShopRevenue
         {
             get

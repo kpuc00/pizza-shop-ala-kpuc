@@ -14,7 +14,6 @@ namespace PizzaShop
     {
         CustomerAdmin customer = new CustomerAdmin();
         OrderAdmin order = new OrderAdmin();
-        private double revenue;
 
         public ChefForm()
         {
@@ -28,7 +27,7 @@ namespace PizzaShop
             customer.LoadCustomersFromFile();
             UpdateCustomersListbox();
         }
-        
+
         private void LoadOrders()
         {
             order.LoadOrdersFromFile();
@@ -41,6 +40,7 @@ namespace PizzaShop
             lbxCustomers.Items.Clear();
             if (customer.Customers.Count() == 0)
             {
+                Customer.IdSeeder = 100;
                 lbxCustomers.Items.Add("There are not registered customers in the system.");
             }
             else
@@ -49,9 +49,9 @@ namespace PizzaShop
                 {
                     lbxCustomers.Items.Add(c);
                 }
+                lbxCustomers.Items.Add("");
+                lbxCustomers.Items.Add("Double click on a customer to edit it.");
             }
-            lbxCustomers.Items.Add("");
-            lbxCustomers.Items.Add("Double click on a customer to edit it.");
         }
 
         private void UpdateOrdersListbox()
@@ -59,10 +59,11 @@ namespace PizzaShop
             lblNrOrders.Text = order.Orders.Count().ToString();
             lblRevenue.Text = $"€ {Order.ShopRevenue.ToString()}";
 
-            lbxSortedOrders.Items.Clear();            
+            lbxSortedOrders.Items.Clear();
             lbxOrders.Items.Clear();
             if (order.Orders.Count() == 0)
             {
+                Order.IdSeeder = 100;
                 lbxOrders.Items.Add("There are no orders in the system.");
                 lbxSortedOrders.Items.Add("There are no orders in the system.");
             }
@@ -75,24 +76,14 @@ namespace PizzaShop
                 lbxOrders.Items.Add("");
                 lbxOrders.Items.Add("Double click on an order to remove it.");
 
-                List<Order> sortedList = order.Orders.OrderBy(o => o.TotalPrice).ToList();
+                List<Order> sortedList = order.Orders.OrderByDescending(o => o.TotalPrice).ToList();
                 lbxSortedOrders.Items.Add("Sorted orders by price:");
                 lbxSortedOrders.Items.Add("");
                 foreach (Order sl in sortedList)
                 {
                     lbxSortedOrders.Items.Add(sl);
                 }
-            }                
-
-        }
-
-        private void ChefForm_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            customer.SaveCustomersToFile();
-            order.SaveOrdersToFile();
-            this.Hide();
-            PizzaShopHome pizzaShopHome = new PizzaShopHome();
-            pizzaShopHome.Show();
+            }
         }
 
         private void lbxOrders_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -101,11 +92,12 @@ namespace PizzaShop
             if ((index != System.Windows.Forms.ListBox.NoMatches) && index < order.Orders.Count())
             {
                 DialogResult dialogResult = MessageBox.Show($"Are you sure you want to remove this order from the system? \n\n {order.Orders.ElementAt<Order>(index)}", "Remove order", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (dialogResult==DialogResult.Yes)
+                if (dialogResult == DialogResult.Yes)
                 {
                     order.Orders.RemoveAt(index);
                     UpdateOrdersListbox();
                 }
+                order.SaveOrdersToFile();
             }
         }
 
@@ -116,8 +108,29 @@ namespace PizzaShop
             {
                 EditCustomer edit = new EditCustomer(customer.Customers.ElementAt<Customer>(index), index);
                 this.Hide();
-                edit.Show();                
+                edit.Show();
             }
+        }
+
+        private void btnResetRevenue_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Are you sure? This cannot be undone!", "Reset revenue", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (dialogResult==DialogResult.Yes)
+            {
+                Order.ShopRevenue = 0;
+                order.SaveOrdersToFile();
+                UpdateOrdersListbox();
+            }
+            UpdateOrdersListbox();
+        }
+
+        private void ChefForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            customer.SaveCustomersToFile();
+            order.SaveOrdersToFile();
+            this.Hide();
+            PizzaShopHome pizzaShopHome = new PizzaShopHome();
+            pizzaShopHome.Show();
         }
     }
 }

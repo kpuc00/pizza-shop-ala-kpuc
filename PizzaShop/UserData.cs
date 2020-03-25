@@ -28,6 +28,10 @@ namespace PizzaShop
             {
                 MessageBox.Show("Please fill the required blanks.");
             }
+            else if (tbxPhone.Text.Length < 10 || tbxPhone.Text.Length > 15)
+            {
+                MessageBox.Show("Invalid phone number. Phone must have at least 10 digits and no more than 15 digits.");
+            }
             else
             {
                 if (string.IsNullOrWhiteSpace(tbxEmail.Text))
@@ -63,6 +67,14 @@ namespace PizzaShop
             this.Hide();
             PizzaShopHome pizzaShopHome = new PizzaShopHome();
             pizzaShopHome.Show();
+        }
+
+        private void tbxPhone_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

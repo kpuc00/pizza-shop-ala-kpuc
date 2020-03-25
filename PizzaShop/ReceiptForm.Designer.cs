@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReceiptForm));
             this.btnSaveReceipt = new System.Windows.Forms.Button();
             this.tbxReceipt = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
@@ -62,6 +63,7 @@
             this.Controls.Add(this.tbxReceipt);
             this.Controls.Add(this.btnSaveReceipt);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "ReceiptForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

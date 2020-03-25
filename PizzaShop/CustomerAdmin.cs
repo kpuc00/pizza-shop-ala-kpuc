@@ -51,9 +51,9 @@ namespace PizzaShop
                 bf = new BinaryFormatter();
                 customer.Customers = (List<Customer>)bf.Deserialize(fs);
             }
-            catch (Exception ex)
+            catch (IOException ex)
             {
-                throw new Exception(ex.Message);
+                throw new IOException(ex.Message);
             }
             finally
             {
@@ -72,9 +72,9 @@ namespace PizzaShop
                 bf2 = new BinaryFormatter();
                 Customer.IdSeeder = (int)bf2.Deserialize(fs2);
             }
-            catch (Exception ex)
+            catch (IOException ex)
             {
-                throw new Exception(ex.Message);
+                throw new IOException(ex.Message);
             }
             finally
             {
@@ -96,9 +96,9 @@ namespace PizzaShop
                 bf = new BinaryFormatter();
                 bf.Serialize(fs, customer.Customers);
             }
-            catch (Exception ex)
+            catch (IOException ex)
             {
-                throw new Exception(ex.Message);
+                throw new IOException(ex.Message);
             }
             finally
             {
@@ -117,9 +117,9 @@ namespace PizzaShop
                 bf2 = new BinaryFormatter();
                 bf2.Serialize(fs2, Customer.IdSeeder);
             }
-            catch (Exception ex)
+            catch (IOException ex)
             {
-                throw new Exception(ex.Message);
+                throw new IOException(ex.Message);
             }
             finally
             {

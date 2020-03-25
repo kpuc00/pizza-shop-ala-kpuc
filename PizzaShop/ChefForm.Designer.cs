@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ChefForm));
             this.lbxCustomers = new System.Windows.Forms.ListBox();
             this.lbxOrders = new System.Windows.Forms.ListBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -35,13 +36,14 @@
             this.tabPageOrders = new System.Windows.Forms.TabPage();
             this.lbxSortedOrders = new System.Windows.Forms.ListBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.lblRevenue = new System.Windows.Forms.Label();
-            this.lblNrOrders = new System.Windows.Forms.Label();
             this.lblNrCustomers = new System.Windows.Forms.Label();
+            this.lblNrOrders = new System.Windows.Forms.Label();
+            this.lblRevenue = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnResetRevenue = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPageCustomers.SuspendLayout();
             this.tabPageOrders.SuspendLayout();
@@ -121,6 +123,7 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.btnResetRevenue);
             this.panel1.Controls.Add(this.lblNrCustomers);
             this.panel1.Controls.Add(this.lblNrOrders);
             this.panel1.Controls.Add(this.lblRevenue);
@@ -130,17 +133,53 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(474, 51);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(267, 182);
+            this.panel1.Size = new System.Drawing.Size(267, 246);
             this.panel1.TabIndex = 5;
             // 
-            // label1
+            // lblNrCustomers
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(16, 57);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(116, 23);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Shop revenue:";
+            this.lblNrCustomers.AutoSize = true;
+            this.lblNrCustomers.Location = new System.Drawing.Point(193, 137);
+            this.lblNrCustomers.Name = "lblNrCustomers";
+            this.lblNrCustomers.Size = new System.Drawing.Size(20, 23);
+            this.lblNrCustomers.TabIndex = 6;
+            this.lblNrCustomers.Text = "0";
+            // 
+            // lblNrOrders
+            // 
+            this.lblNrOrders.AutoSize = true;
+            this.lblNrOrders.Location = new System.Drawing.Point(193, 95);
+            this.lblNrOrders.Name = "lblNrOrders";
+            this.lblNrOrders.Size = new System.Drawing.Size(20, 23);
+            this.lblNrOrders.TabIndex = 5;
+            this.lblNrOrders.Text = "0";
+            // 
+            // lblRevenue
+            // 
+            this.lblRevenue.AutoSize = true;
+            this.lblRevenue.Location = new System.Drawing.Point(193, 57);
+            this.lblRevenue.Name = "lblRevenue";
+            this.lblRevenue.Size = new System.Drawing.Size(58, 23);
+            this.lblRevenue.TabIndex = 4;
+            this.lblRevenue.Text = "€ 0.00";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(16, 137);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(181, 23);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Number of customers:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(16, 95);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(149, 23);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Number of orders:";
             // 
             // label2
             // 
@@ -152,50 +191,25 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Statistics";
             // 
-            // label3
+            // label1
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(16, 95);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(149, 23);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Number of orders:";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(16, 57);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(116, 23);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Shop revenue:";
             // 
-            // label4
+            // btnResetRevenue
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(16, 137);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(181, 23);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Number of customers:";
-            // 
-            // lblRevenue
-            // 
-            this.lblRevenue.AutoSize = true;
-            this.lblRevenue.Location = new System.Drawing.Point(193, 57);
-            this.lblRevenue.Name = "lblRevenue";
-            this.lblRevenue.Size = new System.Drawing.Size(58, 23);
-            this.lblRevenue.TabIndex = 4;
-            this.lblRevenue.Text = "€ 0.00";
-            // 
-            // lblNrOrders
-            // 
-            this.lblNrOrders.AutoSize = true;
-            this.lblNrOrders.Location = new System.Drawing.Point(193, 95);
-            this.lblNrOrders.Name = "lblNrOrders";
-            this.lblNrOrders.Size = new System.Drawing.Size(20, 23);
-            this.lblNrOrders.TabIndex = 5;
-            this.lblNrOrders.Text = "0";
-            // 
-            // lblNrCustomers
-            // 
-            this.lblNrCustomers.AutoSize = true;
-            this.lblNrCustomers.Location = new System.Drawing.Point(193, 137);
-            this.lblNrCustomers.Name = "lblNrCustomers";
-            this.lblNrCustomers.Size = new System.Drawing.Size(20, 23);
-            this.lblNrCustomers.TabIndex = 6;
-            this.lblNrCustomers.Text = "0";
+            this.btnResetRevenue.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnResetRevenue.Location = new System.Drawing.Point(62, 186);
+            this.btnResetRevenue.Name = "btnResetRevenue";
+            this.btnResetRevenue.Size = new System.Drawing.Size(135, 35);
+            this.btnResetRevenue.TabIndex = 6;
+            this.btnResetRevenue.Text = "Reset revenue";
+            this.btnResetRevenue.UseVisualStyleBackColor = true;
+            this.btnResetRevenue.Click += new System.EventHandler(this.btnResetRevenue_Click);
             // 
             // ChefForm
             // 
@@ -208,11 +222,12 @@
             this.Controls.Add(this.tabControl1);
             this.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ChefForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ChefForm";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ChefForm_FormClosed);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ChefForm_FormClosing);
             this.tabControl1.ResumeLayout(false);
             this.tabPageCustomers.ResumeLayout(false);
             this.tabPageOrders.ResumeLayout(false);
@@ -238,5 +253,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnResetRevenue;
     }
 }

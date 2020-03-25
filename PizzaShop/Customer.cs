@@ -69,7 +69,7 @@ namespace PizzaShop
         }
         public override string ToString()
         {
-            return $"{id} Name: {Name}, Contact: {Phone}; {Email}";
+            return $"Id:{id}| Name: {Name}, Contact: {Phone}; {Email}";
         }
     }
 }

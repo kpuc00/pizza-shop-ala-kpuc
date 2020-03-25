@@ -42,6 +42,7 @@ namespace PizzaShop
             cbPepperoniCrust.DropDownStyle = ComboBoxStyle.DropDownList;
             cbBBQChickenCrust.DropDownStyle = ComboBoxStyle.DropDownList;
             UpdateListbox();
+            order.LoadOrdersFromFile();
         }
 
         private void UpdateListbox()
@@ -634,6 +635,7 @@ namespace PizzaShop
                     o = new Order(customerId, customerName, dateTime, orderedPizzas, totalPrice);
                     order.AddOrder(o);
                     orderSent = true;
+                    SaveData();
                     DialogResult dialogResult2 = MessageBox.Show($"Thank you {customerName} for visiting our shop! \n Your order number is {o.GetOrderNumber()}. \n\n Do you want a receipt?", "Order placed", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                     if (dialogResult2 == DialogResult.Yes)
                     {
@@ -654,6 +656,7 @@ namespace PizzaShop
                     o = new Order(customerId, customerName, dateTime, orderedDrinks, totalPrice);
                     order.AddOrder(o);
                     orderSent = true;
+                    SaveData();
                     DialogResult dialogResult2 = MessageBox.Show($"Thank you {customerName} for visiting our shop! \n Your order number is {o.GetOrderNumber()}. \n\n Do you want a receipt?", "Order placed", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                     if (dialogResult2 == DialogResult.Yes)
                     {
@@ -675,6 +678,7 @@ namespace PizzaShop
                     o = new Order(customerId, customerName, dateTime, orderedPizzas, orderedDrinks, totalPrice);
                     order.AddOrder(o);
                     orderSent = true;
+                    SaveData();
                     DialogResult dialogResult2 = MessageBox.Show($"Thank you {customerName} for visiting our shop! \n Your order number is {o.GetOrderNumber()}. \n\n Do you want a receipt?", "Order placed", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                     if (dialogResult2 == DialogResult.Yes)
                     {
@@ -708,10 +712,14 @@ namespace PizzaShop
             receipt.Show();
         }
 
-        private void CloseForm()
+        private void SaveData()
         {
             customer.SaveCustomersToFile();
             order.SaveOrdersToFile();
+        }
+
+        private void CloseForm()
+        {
             RemoveTemporaryData();
             this.Hide();
             orderSent = false;
