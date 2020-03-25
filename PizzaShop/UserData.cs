@@ -26,11 +26,11 @@ namespace PizzaShop
         {
             if (string.IsNullOrWhiteSpace(tbxName.Text) || string.IsNullOrWhiteSpace(tbxPhone.Text))
             {
-                MessageBox.Show("Please fill the required blanks.");
+                MessageBox.Show("Please fill the required blanks.", "User data", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             else if (tbxPhone.Text.Length < 10 || tbxPhone.Text.Length > 15)
             {
-                MessageBox.Show("Invalid phone number. Phone must have at least 10 digits and no more than 15 digits.");
+                MessageBox.Show("Invalid phone number. Phone must have at least 10 digits and no more than 15 digits.", "User data", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             else
             {
@@ -56,7 +56,7 @@ namespace PizzaShop
                     }
                     else
                     {
-                        MessageBox.Show("Invalid email address.");
+                        MessageBox.Show("Invalid email address.", "User data", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     }
                 }
             }
@@ -74,6 +74,30 @@ namespace PizzaShop
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
+            }
+        }
+
+        private void tbxName_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnSubmit_Click(this, new EventArgs());
+            }
+        }
+
+        private void tbxPhone_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnSubmit_Click(this, new EventArgs());
+            }
+        }
+
+        private void tbxEmail_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnSubmit_Click(this, new EventArgs());
             }
         }
     }

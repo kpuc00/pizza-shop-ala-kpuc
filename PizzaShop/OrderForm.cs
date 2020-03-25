@@ -61,8 +61,6 @@ namespace PizzaShop
                 }
                 lbxDetails.Items.Add("");
                 lbxDetails.Items.Add($"Total: € {totalPrice}");
-                lbxDetails.Items.Add("");
-                lbxDetails.Items.Add("Double click on a product to remove it from the cart.");
             }
 
         }
@@ -656,20 +654,12 @@ namespace PizzaShop
             }            
         }
 
-        private void lbxDetails_MouseDoubleClick(object sender, MouseEventArgs e)
-        {            
-            int index = lbxDetails.IndexFromPoint(e.Location);
-            Order o = (Order)cart.ElementAt<object>(index);
-            double substractPrice;
-            if ((index != System.Windows.Forms.ListBox.NoMatches) && index < cart.Count())
-            {
-                DialogResult dialogResult = MessageBox.Show($"Are you sure you want to remove this product from the cart? \n\n {cart.ElementAt<object>(index)}", "Remove product", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (dialogResult == DialogResult.Yes)
-                {
-                    cart.RemoveAt(index);
-                    UpdateCartListBox();
-                }
-            }
+        private void btnClearCart_Click(object sender, EventArgs e)
+        {
+            totalPrice = 0;
+            price = 0;
+            cart.Clear();
+            UpdateCartListBox();
         }
 
         private void RemoveTemporaryData()
@@ -724,6 +714,6 @@ namespace PizzaShop
                 CloseForm();
             }
         }
-
+                
     }
 }

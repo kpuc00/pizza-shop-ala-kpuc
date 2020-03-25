@@ -40,6 +40,8 @@
             this.tbxNumber.Name = "tbxNumber";
             this.tbxNumber.Size = new System.Drawing.Size(192, 22);
             this.tbxNumber.TabIndex = 0;
+            this.tbxNumber.Text = "PS";
+            this.tbxNumber.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbxNumber_KeyDown);
             // 
             // label1
             // 
@@ -61,7 +63,7 @@
             this.btnSubmit.TabIndex = 2;
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseVisualStyleBackColor = true;
-            this.btnSubmit.Click += new System.EventHandler(this.btnEnter_Click);
+            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
             // OrderNumberForm
             // 

@@ -21,13 +21,13 @@ namespace PizzaShop
         {
             if (string.IsNullOrWhiteSpace(tbxKey.Text))
             {
-                MessageBox.Show("Please enter the security key!");
+                MessageBox.Show("Please enter the security key!", "Security key", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             else
             {
                 if (tbxKey.Text != "administrator")
                 {
-                    MessageBox.Show("Wrong security key!");
+                    MessageBox.Show("Wrong security key!", "Security key", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
@@ -43,6 +43,14 @@ namespace PizzaShop
             this.Hide();
             PizzaShopHome pizzaShopHome = new PizzaShopHome();
             pizzaShopHome.Show();
+        }
+
+        private void tbxKey_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnSubmit_Click(this, new EventArgs());
+            }
         }
     }
 }

@@ -67,6 +67,7 @@
             this.tbxName.Name = "tbxName";
             this.tbxName.Size = new System.Drawing.Size(256, 22);
             this.tbxName.TabIndex = 2;
+            this.tbxName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbxName_KeyDown);
             // 
             // tbxEmail
             // 
@@ -74,6 +75,7 @@
             this.tbxEmail.Name = "tbxEmail";
             this.tbxEmail.Size = new System.Drawing.Size(256, 22);
             this.tbxEmail.TabIndex = 6;
+            this.tbxEmail.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbxEmail_KeyDown);
             // 
             // label3
             // 
@@ -103,6 +105,7 @@
             this.tbxPhone.Name = "tbxPhone";
             this.tbxPhone.Size = new System.Drawing.Size(256, 22);
             this.tbxPhone.TabIndex = 4;
+            this.tbxPhone.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbxPhone_KeyDown);
             this.tbxPhone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxPhone_KeyPress);
             // 
             // label4

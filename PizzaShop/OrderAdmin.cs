@@ -33,6 +33,10 @@ namespace PizzaShop
         {
             return orders.ToArray();
         }
+        public Order GetOrderByNumber(string givenOrderNumber)
+        {
+            return orders.Find(x => x.OrderNumber.Contains(givenOrderNumber));
+        }
         public void LoadOrdersFromFile()
         {
             OrderAdmin order = new OrderAdmin();

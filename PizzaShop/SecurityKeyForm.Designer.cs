@@ -53,6 +53,7 @@
             this.tbxKey.PasswordChar = '•';
             this.tbxKey.Size = new System.Drawing.Size(282, 27);
             this.tbxKey.TabIndex = 1;
+            this.tbxKey.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbxKey_KeyDown);
             // 
             // btnSubmit
             // 
