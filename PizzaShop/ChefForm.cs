@@ -37,6 +37,7 @@ namespace PizzaShop
 
         private void UpdateCustomersListbox()
         {
+            lblNrCustomers.Text = customer.Customers.Count().ToString();
             lbxCustomers.Items.Clear();
             if (customer.Customers.Count() == 0)
             {
@@ -55,7 +56,8 @@ namespace PizzaShop
 
         private void UpdateOrdersListbox()
         {
-            revenue = Order.ShopRevenue;
+            lblNrOrders.Text = order.Orders.Count().ToString();
+            lblRevenue.Text = $"€ {Order.ShopRevenue.ToString()}";
 
             lbxSortedOrders.Items.Clear();            
             lbxOrders.Items.Clear();

@@ -49,7 +49,6 @@ namespace PizzaShop
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
-                //MessageBox.Show(ex.Message);
             }
             finally
             {
@@ -67,7 +66,7 @@ namespace PizzaShop
             {
                 fs2 = new FileStream(fileNameRevenue, FileMode.Open, FileAccess.Read);
                 bf2 = new BinaryFormatter();
-                Order.ShopRevenue = (double)bf.Deserialize(fs);
+                Order.ShopRevenue = (double)bf2.Deserialize(fs2);
             }
             catch (Exception ex)
             {
@@ -75,9 +74,9 @@ namespace PizzaShop
             }
             finally
             {
-                if (fs != null)
+                if (fs2 != null)
                 {
-                    fs.Close();
+                    fs2.Close();
                 }
             }
         }
