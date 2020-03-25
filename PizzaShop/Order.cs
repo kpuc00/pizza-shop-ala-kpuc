@@ -12,6 +12,7 @@ namespace PizzaShop
     {
         private List<Pizza> pizzas = new List<Pizza>();
         private List<Drink> drinks = new List<Drink>();
+        private List<object> cart = new List<object>();
 
         private static int idSeeder = 100;
         private static double shopRevenue;
@@ -44,26 +45,16 @@ namespace PizzaShop
         public int CustomerId { get; private set; }
         public string CustomerName { get; private set; }
         public DateTime Timestamp { get; private set; }
-        public List<Pizza> Pizzas
+
+        public List<object> Cart
         {
             get
             {
-                return pizzas;
+                return cart;
             }
             set
             {
-                pizzas = value;
-            }
-        }
-        public List<Drink> Drinks
-        {
-            get
-            {
-                return drinks;
-            }
-            set
-            {
-                drinks = value;
+                cart = value;
             }
         }
         public double TotalPrice
@@ -79,41 +70,14 @@ namespace PizzaShop
             }
         }
 
-        public Order(int givenCustomerId, string givenCustomerName, DateTime givenTimestamp, List<Pizza> givenPizzas, List<Drink> givenDrinks, double givenPrice)
+        public Order(int givenCustomerId, string givenCustomerName, DateTime givenTimestamp, List<object> givenCart, double givenPrice)
         {
-            Pizzas = new List<Pizza>();
-            Drinks = new List<Drink>();
             OrderNumber = "PS" + idSeeder;
             idSeeder++;
             CustomerId = givenCustomerId;
             CustomerName = givenCustomerName;
             Timestamp = givenTimestamp;
-            Pizzas = givenPizzas;
-            Drinks = givenDrinks;
-            TotalPrice = givenPrice;
-        }
-
-        public Order(int givenCustomerId, string givenCustomerName, DateTime givenTimestamp, List<Pizza> givenPizzas, double givenPrice)
-        {
-            Pizzas = new List<Pizza>();
-            OrderNumber = "PS" + idSeeder;
-            idSeeder++;
-            CustomerId = givenCustomerId;
-            CustomerName = givenCustomerName;
-            Timestamp = givenTimestamp;
-            Pizzas = givenPizzas;
-            TotalPrice = givenPrice;
-        }
-
-        public Order(int givenCustomerId, string givenCustomerName, DateTime givenTimestamp, List<Drink> givenDrinks, double givenPrice)
-        {
-            Drinks = new List<Drink>();
-            OrderNumber = "PS" + idSeeder;
-            idSeeder++;
-            CustomerId = givenCustomerId;
-            CustomerName = givenCustomerName;
-            Timestamp = givenTimestamp;
-            Drinks = givenDrinks;
+            Cart = givenCart;
             TotalPrice = givenPrice;
         }
 

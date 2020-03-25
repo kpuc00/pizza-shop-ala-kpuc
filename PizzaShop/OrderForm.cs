@@ -11,9 +11,8 @@ using System.Windows.Forms;
 namespace PizzaShop
 {
     public partial class OrderForm : Form
-    {
-        private static List<Pizza> orderedPizzas = new List<Pizza>();
-        private static List<Drink> orderedDrinks = new List<Drink>();
+    {        
+        private static List<object> cart = new List<object>();
 
         private string customerName;
         private int customerId;
@@ -41,23 +40,31 @@ namespace PizzaShop
             cbQuattroStaCrust.DropDownStyle = ComboBoxStyle.DropDownList;
             cbPepperoniCrust.DropDownStyle = ComboBoxStyle.DropDownList;
             cbBBQChickenCrust.DropDownStyle = ComboBoxStyle.DropDownList;
-            UpdateListbox();
+            UpdateCartListBox();
             order.LoadOrdersFromFile();
         }
 
-        private void UpdateListbox()
+        private void UpdateCartListBox()
         {
             lbxDetails.Items.Clear();
-            foreach (Pizza p in orderedPizzas)
+            if (cart.Count() == 0)
             {
-                lbxDetails.Items.Add(p);
+                lbxDetails.Items.Add("Empty");
+                lbxDetails.Items.Add("");
+                lbxDetails.Items.Add($"Total: € {totalPrice}");
             }
-            foreach (Drink d in orderedDrinks)
+            else
             {
-                lbxDetails.Items.Add(d);
+                foreach (var p in cart)
+                {
+                    lbxDetails.Items.Add(p);
+                }
+                lbxDetails.Items.Add("");
+                lbxDetails.Items.Add($"Total: € {totalPrice}");
+                lbxDetails.Items.Add("");
+                lbxDetails.Items.Add("Double click on a product to remove it from the cart.");
             }
-            lbxDetails.Items.Add("");
-            lbxDetails.Items.Add($"Total: € {totalPrice}");
+
         }
 
         //--------------------------------------------------------------------
@@ -80,24 +87,24 @@ namespace PizzaShop
                         price = (basePrice + addPrice) * amount;
                         totalPrice += price;
                         pizza = new Pizza("Margheritta", pizzaType, amount, price);
-                        orderedPizzas.Add(pizza);
-                        UpdateListbox();
+                        cart.Add(pizza);
+                        UpdateCartListBox();
                         break;
                     case "Thick crust":
                         pizzaType = PizzaType.thick;
                         price = (basePrice + addPrice + 0.51) * amount;
                         totalPrice += price;
                         pizza = new Pizza("Margheritta", pizzaType, amount, price);
-                        orderedPizzas.Add(pizza);
-                        UpdateListbox();
+                        cart.Add(pizza);
+                        UpdateCartListBox();
                         break;
                     case "Cheese filled crust":
                         pizzaType = PizzaType.filled;
                         price = (basePrice + addPrice + 1.96) * amount;
                         totalPrice += price;
                         pizza = new Pizza("Margheritta", pizzaType, amount, price);
-                        orderedPizzas.Add(pizza);
-                        UpdateListbox();
+                        cart.Add(pizza);
+                        UpdateCartListBox();
                         break;
                     default:
                         MessageBox.Show("Please select pizza type!");
@@ -160,24 +167,24 @@ namespace PizzaShop
                         price = (basePrice + addPrice) * amount;
                         totalPrice += price;
                         pizza = new Pizza("Quattro formaggi", pizzaType, amount, price);
-                        orderedPizzas.Add(pizza);
-                        UpdateListbox();
+                        cart.Add(pizza);
+                        UpdateCartListBox();
                         break;
                     case "Thick crust":
                         pizzaType = PizzaType.thick;
                         price = (basePrice + addPrice + 0.51) * amount;
                         totalPrice += price;
                         pizza = new Pizza("Quattro formaggi", pizzaType, amount, price);
-                        orderedPizzas.Add(pizza);
-                        UpdateListbox();
+                        cart.Add(pizza);
+                        UpdateCartListBox();
                         break;
                     case "Cheese filled crust":
                         pizzaType = PizzaType.filled;
                         price = (basePrice + addPrice + 1.96) * amount;
                         totalPrice += price;
                         pizza = new Pizza("Quattro formaggi", pizzaType, amount, price);
-                        orderedPizzas.Add(pizza);
-                        UpdateListbox();
+                        cart.Add(pizza);
+                        UpdateCartListBox();
                         break;
                     default:
                         MessageBox.Show("Please select pizza type!");
@@ -241,24 +248,24 @@ namespace PizzaShop
                         price = (basePrice + addPrice) * amount;
                         totalPrice += price;
                         pizza = new Pizza("Quattro stagioni", pizzaType, amount, price);
-                        orderedPizzas.Add(pizza);
-                        UpdateListbox();
+                        cart.Add(pizza);
+                        UpdateCartListBox();
                         break;
                     case "Thick crust":
                         pizzaType = PizzaType.thick;
                         price = (basePrice + addPrice + 0.51) * amount;
                         totalPrice += price;
                         pizza = new Pizza("Quattro stagioni", pizzaType, amount, price);
-                        orderedPizzas.Add(pizza);
-                        UpdateListbox();
+                        cart.Add(pizza);
+                        UpdateCartListBox();
                         break;
                     case "Cheese filled crust":
                         pizzaType = PizzaType.filled;
                         price = (basePrice + addPrice + 1.96) * amount;
                         totalPrice += price;
                         pizza = new Pizza("Quattro stagioni", pizzaType, amount, price);
-                        orderedPizzas.Add(pizza);
-                        UpdateListbox();
+                        cart.Add(pizza);
+                        UpdateCartListBox();
                         break;
                     default:
                         MessageBox.Show("Please select pizza type!");
@@ -321,24 +328,24 @@ namespace PizzaShop
                         price = (basePrice + addPrice) * amount;
                         totalPrice += price;
                         pizza = new Pizza("Pepperoni", pizzaType, amount, price);
-                        orderedPizzas.Add(pizza);
-                        UpdateListbox();
+                        cart.Add(pizza);
+                        UpdateCartListBox();
                         break;
                     case "Thick crust":
                         pizzaType = PizzaType.thick;
                         price = (basePrice + addPrice + 0.51) * amount;
                         totalPrice += price;
                         pizza = new Pizza("Pepperoni", pizzaType, amount, price);
-                        orderedPizzas.Add(pizza);
-                        UpdateListbox();
+                        cart.Add(pizza);
+                        UpdateCartListBox();
                         break;
                     case "Cheese filled crust":
                         pizzaType = PizzaType.filled;
                         price = (basePrice + addPrice + 1.96) * amount;
                         totalPrice += price;
                         pizza = new Pizza("Pepperoni", pizzaType, amount, price);
-                        orderedPizzas.Add(pizza);
-                        UpdateListbox();
+                        cart.Add(pizza);
+                        UpdateCartListBox();
                         break;
                     default:
                         MessageBox.Show("Please select pizza type!");
@@ -402,24 +409,24 @@ namespace PizzaShop
                         price = (basePrice + addPrice) * amount;
                         totalPrice += price;
                         pizza = new Pizza("BBQ Chicken", pizzaType, amount, price);
-                        orderedPizzas.Add(pizza);
-                        UpdateListbox();
+                        cart.Add(pizza);
+                        UpdateCartListBox();
                         break;
                     case "Thick crust":
                         pizzaType = PizzaType.thick;
                         price = (basePrice + addPrice + 0.51) * amount;
                         totalPrice += price;
                         pizza = new Pizza("BBQ Chicken", pizzaType, amount, price);
-                        orderedPizzas.Add(pizza);
-                        UpdateListbox();
+                        cart.Add(pizza);
+                        UpdateCartListBox();
                         break;
                     case "Cheese filled crust":
                         pizzaType = PizzaType.filled;
                         price = (basePrice + addPrice + 1.96) * amount;
                         totalPrice += price;
                         pizza = new Pizza("BBQ Chicken", pizzaType, amount, price);
-                        orderedPizzas.Add(pizza);
-                        UpdateListbox();
+                        cart.Add(pizza);
+                        UpdateCartListBox();
                         break;
                     default:
                         MessageBox.Show("Please select pizza type!");
@@ -475,8 +482,8 @@ namespace PizzaShop
             if (amount > 0)
             {
                 drink = new Drink("Flat water", amount, price);
-                orderedDrinks.Add(drink);
-                UpdateListbox();
+                cart.Add(drink);
+                UpdateCartListBox();
             }
             else
             {
@@ -506,8 +513,8 @@ namespace PizzaShop
             if (amount > 0)
             {
                 drink = new Drink("Sparkling water", amount, price);
-                orderedDrinks.Add(drink);
-                UpdateListbox();
+                cart.Add(drink);
+                UpdateCartListBox();
             }
             else
             {
@@ -536,8 +543,8 @@ namespace PizzaShop
             if (amount > 0)
             {
                 drink = new Drink("Cola", amount, price);
-                orderedDrinks.Add(drink);
-                UpdateListbox();
+                cart.Add(drink);
+                UpdateCartListBox();
             }
             else
             {
@@ -566,8 +573,8 @@ namespace PizzaShop
             if (amount > 0)
             {
                 drink = new Drink("Ice tea", amount, price);
-                orderedDrinks.Add(drink);
-                UpdateListbox();
+                cart.Add(drink);
+                UpdateCartListBox();
             }
             else
             {
@@ -596,8 +603,8 @@ namespace PizzaShop
             if (amount > 0)
             {
                 drink = new Drink("Energy drink", amount, price);
-                orderedDrinks.Add(drink);
-                UpdateListbox();
+                cart.Add(drink);
+                UpdateCartListBox();
             }
             else
             {
@@ -622,60 +629,17 @@ namespace PizzaShop
         private void btnOrderNow_Click(object sender, EventArgs e)
         {
             dateTime = DateTime.Now;
-            if (orderedPizzas.Count == 0 && orderedDrinks.Count == 0)
+            if (cart.Count == 0)
             {
                 MessageBox.Show("You shopping cart is empty. Please select products!", "Empty cart", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-            else if (orderedDrinks.Count == 0)
-            {
-                var pizzasDetails = string.Join(Environment.NewLine, orderedPizzas);
-                DialogResult dialogResult = MessageBox.Show($"Order details: \n\n {pizzasDetails} \n Total: € {totalPrice} \n\n Do you want to continue?", "Order Details", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-                if (dialogResult == DialogResult.OK)
-                {
-                    o = new Order(customerId, customerName, dateTime, orderedPizzas, totalPrice);
-                    order.AddOrder(o);
-                    orderSent = true;
-                    SaveData();
-                    DialogResult dialogResult2 = MessageBox.Show($"Thank you {customerName} for visiting our shop! \n Your order number is {o.GetOrderNumber()}. \n\n Do you want a receipt?", "Order placed", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-                    if (dialogResult2 == DialogResult.Yes)
-                    {
-                        ShowReceipt(o);
-                    }
-                    else
-                    {
-                        CloseForm();
-                    }
-                }
-            }
-            else if (orderedPizzas.Count == 0)
-            {
-                var drinksDetails = string.Join(Environment.NewLine, orderedDrinks);
-                DialogResult dialogResult = MessageBox.Show($"Order details: \n\n {drinksDetails} \n Total: € {totalPrice} \n\n Do you want to continue?", "Order Details", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-                if (dialogResult == DialogResult.OK)
-                {
-                    o = new Order(customerId, customerName, dateTime, orderedDrinks, totalPrice);
-                    order.AddOrder(o);
-                    orderSent = true;
-                    SaveData();
-                    DialogResult dialogResult2 = MessageBox.Show($"Thank you {customerName} for visiting our shop! \n Your order number is {o.GetOrderNumber()}. \n\n Do you want a receipt?", "Order placed", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-                    if (dialogResult2 == DialogResult.Yes)
-                    {
-                        ShowReceipt(o);
-                    }
-                    else
-                    {
-                        CloseForm();
-                    }
-                }
-            }
             else
             {
-                var pizzasDetails = string.Join(Environment.NewLine, orderedPizzas);
-                var drinksDetails = string.Join(Environment.NewLine, orderedDrinks);
-                DialogResult dialogResult = MessageBox.Show($"Order details: \n\n {pizzasDetails} \n {drinksDetails} \n Total: € {totalPrice} \n\n Do you want to continue?", "Order Details", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                var cartDetails = string.Join(Environment.NewLine, cart);
+                DialogResult dialogResult = MessageBox.Show($"Order details: \n\n {cartDetails} \n Total: € {totalPrice} \n\n Do you want to continue?", "Order Details", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                 if (dialogResult == DialogResult.OK)
                 {
-                    o = new Order(customerId, customerName, dateTime, orderedPizzas, orderedDrinks, totalPrice);
+                    o = new Order(customerId, customerName, dateTime, cart, totalPrice);
                     order.AddOrder(o);
                     orderSent = true;
                     SaveData();
@@ -687,8 +651,23 @@ namespace PizzaShop
                     else
                     {
                         CloseForm();
-
                     }
+                }
+            }            
+        }
+
+        private void lbxDetails_MouseDoubleClick(object sender, MouseEventArgs e)
+        {            
+            int index = lbxDetails.IndexFromPoint(e.Location);
+            Order o = (Order)cart.ElementAt<object>(index);
+            double substractPrice;
+            if ((index != System.Windows.Forms.ListBox.NoMatches) && index < cart.Count())
+            {
+                DialogResult dialogResult = MessageBox.Show($"Are you sure you want to remove this product from the cart? \n\n {cart.ElementAt<object>(index)}", "Remove product", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    cart.RemoveAt(index);
+                    UpdateCartListBox();
                 }
             }
         }
@@ -699,9 +678,8 @@ namespace PizzaShop
             customerId = 0;
             totalPrice = 0;
             price = 0;
-            orderedPizzas.Clear();
-            orderedDrinks.Clear();
-            UpdateListbox();
+            cart.Clear();
+            UpdateCartListBox();
         }
 
         private void ShowReceipt(Order order)
@@ -746,5 +724,6 @@ namespace PizzaShop
                 CloseForm();
             }
         }
+
     }
 }

@@ -116,6 +116,7 @@
             this.lbxDetails.Name = "lbxDetails";
             this.lbxDetails.Size = new System.Drawing.Size(477, 441);
             this.lbxDetails.TabIndex = 0;
+            this.lbxDetails.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lbxDetails_MouseDoubleClick);
             // 
             // tabMenu
             // 
@@ -759,12 +760,12 @@
             // 
             this.label14.AutoSize = true;
             this.label14.BackColor = System.Drawing.Color.White;
-            this.label14.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label14.Location = new System.Drawing.Point(684, 93);
+            this.label14.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label14.Location = new System.Drawing.Point(683, 94);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(112, 23);
+            this.label14.Size = new System.Drawing.Size(50, 26);
             this.label14.TabIndex = 3;
-            this.label14.Text = "Order details:";
+            this.label14.Text = "Cart";
             // 
             // btnOrderNow
             // 

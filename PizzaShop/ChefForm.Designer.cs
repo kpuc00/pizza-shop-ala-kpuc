@@ -44,6 +44,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnResetRevenue = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPageCustomers.SuspendLayout();
             this.tabPageOrders.SuspendLayout();
@@ -78,6 +79,7 @@
             // 
             this.tabControl1.Controls.Add(this.tabPageCustomers);
             this.tabControl1.Controls.Add(this.tabPageOrders);
+            this.tabControl1.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.tabControl1.Location = new System.Drawing.Point(15, 17);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
             this.tabControl1.Name = "tabControl1";
@@ -88,11 +90,11 @@
             // tabPageCustomers
             // 
             this.tabPageCustomers.Controls.Add(this.lbxCustomers);
-            this.tabPageCustomers.Location = new System.Drawing.Point(4, 32);
+            this.tabPageCustomers.Location = new System.Drawing.Point(4, 35);
             this.tabPageCustomers.Margin = new System.Windows.Forms.Padding(4);
             this.tabPageCustomers.Name = "tabPageCustomers";
             this.tabPageCustomers.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPageCustomers.Size = new System.Drawing.Size(451, 468);
+            this.tabPageCustomers.Size = new System.Drawing.Size(451, 465);
             this.tabPageCustomers.TabIndex = 1;
             this.tabPageCustomers.Text = "Customers";
             this.tabPageCustomers.UseVisualStyleBackColor = true;
@@ -100,11 +102,11 @@
             // tabPageOrders
             // 
             this.tabPageOrders.Controls.Add(this.lbxOrders);
-            this.tabPageOrders.Location = new System.Drawing.Point(4, 32);
+            this.tabPageOrders.Location = new System.Drawing.Point(4, 35);
             this.tabPageOrders.Margin = new System.Windows.Forms.Padding(4);
             this.tabPageOrders.Name = "tabPageOrders";
             this.tabPageOrders.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPageOrders.Size = new System.Drawing.Size(451, 468);
+            this.tabPageOrders.Size = new System.Drawing.Size(451, 465);
             this.tabPageOrders.TabIndex = 0;
             this.tabPageOrders.Text = "Orders";
             this.tabPageOrders.UseVisualStyleBackColor = true;
@@ -131,7 +133,7 @@
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(474, 51);
+            this.panel1.Location = new System.Drawing.Point(475, 160);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(267, 246);
             this.panel1.TabIndex = 5;
@@ -184,8 +186,8 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(79, 14);
+            this.label2.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.Location = new System.Drawing.Point(82, 14);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(96, 26);
             this.label2.TabIndex = 1;
@@ -211,12 +213,24 @@
             this.btnResetRevenue.UseVisualStyleBackColor = true;
             this.btnResetRevenue.Click += new System.EventHandler(this.btnResetRevenue_Click);
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.White;
+            this.label5.Font = new System.Drawing.Font("Roboto", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label5.Location = new System.Drawing.Point(337, 18);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(123, 32);
+            this.label5.TabIndex = 7;
+            this.label5.Text = "Edit menu";
+            // 
             // ChefForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::PizzaShop.Properties.Resources.pizzashop_background;
             this.ClientSize = new System.Drawing.Size(1168, 534);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lbxSortedOrders);
             this.Controls.Add(this.tabControl1);
@@ -234,6 +248,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -254,5 +269,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnResetRevenue;
+        private System.Windows.Forms.Label label5;
     }
 }

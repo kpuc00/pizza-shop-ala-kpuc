@@ -13,8 +13,8 @@ namespace PizzaShop
 {
     public partial class ReceiptForm : Form
     {
-        private List<Pizza> pizzas = new List<Pizza>();
-        private List<Drink> drinks = new List<Drink>();
+        private List<object> cart = new List<object>();
+
         private double totalPrice;
         private string customerName;
         private string orderNumber;
@@ -23,8 +23,7 @@ namespace PizzaShop
         public ReceiptForm(Order order)
         {
             InitializeComponent();
-            pizzas = order.Pizzas;
-            drinks = order.Drinks;
+            cart = order.Cart;
             totalPrice = order.TotalPrice;
             customerName = order.CustomerName;
             orderNumber = order.GetOrderNumber();
@@ -40,17 +39,12 @@ namespace PizzaShop
                             $"\r\n" +
                             $"Order number: {orderNumber}" +
                             $"\r\n\r\n";
-            foreach (var p in pizzas)
+            foreach (var p in cart)
             {
                 receipt += p + "\r\n";
             }
-            receipt += $"\r\n";
-            foreach (var d in drinks)
-            {
-                receipt += d + "\r\n";
-            }
             receipt += $"\r\n" +
-             $"---------------------------------------------------------------------" +
+            $"---------------------------------------------------------------------" +
              $"\r\n" +
              $"TOTAL                                                        € {totalPrice}" +
              $"\r\n" +
