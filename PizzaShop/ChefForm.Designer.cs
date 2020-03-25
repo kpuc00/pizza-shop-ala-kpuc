@@ -36,6 +36,7 @@
             this.tabPageOrders = new System.Windows.Forms.TabPage();
             this.lbxSortedOrders = new System.Windows.Forms.ListBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnResetRevenue = new System.Windows.Forms.Button();
             this.lblNrCustomers = new System.Windows.Forms.Label();
             this.lblNrOrders = new System.Windows.Forms.Label();
             this.lblRevenue = new System.Windows.Forms.Label();
@@ -43,7 +44,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnResetRevenue = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPageCustomers.SuspendLayout();
@@ -55,6 +55,7 @@
             // 
             this.lbxCustomers.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lbxCustomers.FormattingEnabled = true;
+            this.lbxCustomers.HorizontalScrollbar = true;
             this.lbxCustomers.ItemHeight = 20;
             this.lbxCustomers.Location = new System.Drawing.Point(1, 2);
             this.lbxCustomers.Margin = new System.Windows.Forms.Padding(4);
@@ -67,6 +68,7 @@
             // 
             this.lbxOrders.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lbxOrders.FormattingEnabled = true;
+            this.lbxOrders.HorizontalScrollbar = true;
             this.lbxOrders.ItemHeight = 20;
             this.lbxOrders.Location = new System.Drawing.Point(1, 1);
             this.lbxOrders.Margin = new System.Windows.Forms.Padding(4);
@@ -115,6 +117,7 @@
             // 
             this.lbxSortedOrders.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lbxSortedOrders.FormattingEnabled = true;
+            this.lbxSortedOrders.HorizontalScrollbar = true;
             this.lbxSortedOrders.ItemHeight = 20;
             this.lbxSortedOrders.Location = new System.Drawing.Point(747, 50);
             this.lbxSortedOrders.Name = "lbxSortedOrders";
@@ -137,6 +140,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(267, 246);
             this.panel1.TabIndex = 5;
+            // 
+            // btnResetRevenue
+            // 
+            this.btnResetRevenue.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnResetRevenue.Location = new System.Drawing.Point(62, 186);
+            this.btnResetRevenue.Name = "btnResetRevenue";
+            this.btnResetRevenue.Size = new System.Drawing.Size(135, 35);
+            this.btnResetRevenue.TabIndex = 6;
+            this.btnResetRevenue.Text = "Reset revenue";
+            this.btnResetRevenue.UseVisualStyleBackColor = true;
+            this.btnResetRevenue.Click += new System.EventHandler(this.btnResetRevenue_Click);
             // 
             // lblNrCustomers
             // 
@@ -201,17 +215,6 @@
             this.label1.Size = new System.Drawing.Size(116, 23);
             this.label1.TabIndex = 0;
             this.label1.Text = "Shop revenue:";
-            // 
-            // btnResetRevenue
-            // 
-            this.btnResetRevenue.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnResetRevenue.Location = new System.Drawing.Point(62, 186);
-            this.btnResetRevenue.Name = "btnResetRevenue";
-            this.btnResetRevenue.Size = new System.Drawing.Size(135, 35);
-            this.btnResetRevenue.TabIndex = 6;
-            this.btnResetRevenue.Text = "Reset revenue";
-            this.btnResetRevenue.UseVisualStyleBackColor = true;
-            this.btnResetRevenue.Click += new System.EventHandler(this.btnResetRevenue_Click);
             // 
             // label5
             // 

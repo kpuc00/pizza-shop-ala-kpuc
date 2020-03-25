@@ -92,6 +92,7 @@
             this.lblTitle = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.btnOrderNow = new System.Windows.Forms.Button();
+            this.btnClearCart = new System.Windows.Forms.Button();
             this.tabMenu.SuspendLayout();
             this.tabPizzas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.amountBBQChicken)).BeginInit();
@@ -116,7 +117,6 @@
             this.lbxDetails.Name = "lbxDetails";
             this.lbxDetails.Size = new System.Drawing.Size(477, 441);
             this.lbxDetails.TabIndex = 0;
-            this.lbxDetails.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lbxDetails_MouseDoubleClick);
             // 
             // tabMenu
             // 
@@ -778,6 +778,17 @@
             this.btnOrderNow.UseVisualStyleBackColor = true;
             this.btnOrderNow.Click += new System.EventHandler(this.btnOrderNow_Click);
             // 
+            // btnClearCart
+            // 
+            this.btnClearCart.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnClearCart.Location = new System.Drawing.Point(1034, 88);
+            this.btnClearCart.Name = "btnClearCart";
+            this.btnClearCart.Size = new System.Drawing.Size(131, 32);
+            this.btnClearCart.TabIndex = 5;
+            this.btnClearCart.Text = "Clear cart";
+            this.btnClearCart.UseVisualStyleBackColor = true;
+            this.btnClearCart.Click += new System.EventHandler(this.btnClearCart_Click);
+            // 
             // OrderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -785,6 +796,7 @@
             this.BackColor = System.Drawing.SystemColors.Control;
             this.BackgroundImage = global::PizzaShop.Properties.Resources.pizzashop_background;
             this.ClientSize = new System.Drawing.Size(1177, 588);
+            this.Controls.Add(this.btnClearCart);
             this.Controls.Add(this.lbxDetails);
             this.Controls.Add(this.btnOrderNow);
             this.Controls.Add(this.label14);
@@ -882,5 +894,6 @@
         private System.Windows.Forms.Button btnAddFlatWater;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Button btnClearCart;
     }
 }

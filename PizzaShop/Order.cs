@@ -17,6 +17,7 @@ namespace PizzaShop
         private static int idSeeder = 100;
         private static double shopRevenue;
         private double totalPrice;
+        private string orderNumber;
 
         public static double ShopRevenue
         {
@@ -41,7 +42,17 @@ namespace PizzaShop
             }
         }
 
-        public string OrderNumber { get; private set; }
+        public string OrderNumber
+        {
+            get
+            {
+                return orderNumber;
+            }
+            private set
+            {
+                orderNumber = value;
+            }
+        }
         public int CustomerId { get; private set; }
         public string CustomerName { get; private set; }
         public DateTime Timestamp { get; private set; }
@@ -88,7 +99,7 @@ namespace PizzaShop
 
         public override string ToString()
         {
-            return $"Order: {OrderNumber} - Customer: {CustomerName} - Total: € {TotalPrice} - Date: {Timestamp}";
+            return $"Order: {OrderNumber} - CustomerID: {CustomerId} - Customer name: {CustomerName} - Total: € {TotalPrice} - Date: {Timestamp}";
         }
     }
 }
