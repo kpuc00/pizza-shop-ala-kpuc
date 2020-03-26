@@ -18,11 +18,6 @@ namespace PizzaShop
             Amount = givenAmount;
             Price = givenPrice;
         }
-        public Drink() { }
-        public double GetPrice()
-        {
-            return Price;
-        }
         public override string ToString()
         {
             return $"{Amount}x {DrinkName} - € {Price}";

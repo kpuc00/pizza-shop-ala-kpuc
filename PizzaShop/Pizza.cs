@@ -26,10 +26,6 @@ namespace PizzaShop
         {
             return basePrice;
         }
-        public double GetPrice()
-        {
-            return Price;
-        }
         public override string ToString()
         {
             return $"{Amount}x {PizzaName} ({PizzaType}) - € {Price}";
